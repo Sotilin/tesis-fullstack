@@ -92,6 +92,80 @@ const ultimosCuatroAños = listado.filter(iteracion => iteracion.año >= 2021);
 
 
 ultimosCuatroAños.forEach(iteracion => {
+    // extraer informacion de un objeto 
     const {escritor,generoLiterario,ultimaObra,año} = iteracion;
     console.log(`El escritor ${escritor} genero literario ${generoLiterario} su ultima obra fue ${ultimaObra} y fue publicada en el año ${año}`);
 });
+
+
+
+
+const estudiantes = [{
+    id : 1,
+    nombre : "Carlos",
+    apellido : "Quishpe",
+    nivel : 1,
+    paralelo : "A"
+},
+{
+    id : 2,
+    nombre : "Gabriel",
+    apellido : "Hernadez",
+    nivel : 1,
+    paralelo : "B"},
+{
+    id : 3,
+    nombre : "Kevin",
+    apellido : "Quishpe",
+    nivel : 1,
+    paralelo : "A"}
+]
+
+
+const estudianteParaleloB = estudiantes.filter(estudiante => estudiante.paralelo === "B");
+
+
+
+const informacionesEstudiantesB = estudianteParaleloB.forEach(informacion => {
+
+    const {id,nombre,apellido,nivel,paralelo} = informacion;
+    console.log(`ID: ${id}, Nombre: ${nombre}, Apellido: ${apellido}, Nivel: ${nivel}, Paralelo: ${paralelo}`);
+
+}); 
+
+
+
+
+const proyecto = [
+  { titulo: 'Sistema de Inventarios', area: 'Software', nota: 7 },
+  { titulo: 'Red Neuronal para Diagnóstico', area: 'IA', nota: 9 },
+  { titulo: 'App Móvil de Mascotas', area: 'Software', nota: 5 },
+  { titulo: 'Optimizador de Rutas', area: 'IA', nota: 10 },
+  { titulo: 'Página Web Informativa', area: 'Software', nota: 6 }
+];
+
+/*
+Filtrar (.filter): Crea una variable proyectosAprobados que guarde únicamente los proyectos cuya nota sea mayor o igual a 7 (nota >= 7).
+
+
+Transformar (.map): A partir de proyectosAprobados, usa .map() y desestructuración para crear un nuevo arreglo de textos llamados resumenes. Cada elemento debe tener este formato usando Template Literals:
+"El proyecto '[titulo]' ([area]) fue APROBADO con nota de [nota]"
+
+Imprimir (.forEach): Recorre el arreglo resumenes e imprímelo en consola.
+
+
+*/
+
+
+const mayorSiete = proyecto.filter(iterador => iterador.nota >= 7);
+
+const arregloAprovados = mayorSiete.map( iterador => {
+    const {titulo,area,nota} = iterador;
+    return `El proyecto ${titulo} ${area} fue APROBADO ${nota}`;
+})
+
+console.log(" ======= Lista de Aprovados ======= ");
+
+arregloAprovados.forEach(iterador => {
+    console.log(iterador);
+})
